@@ -10,7 +10,8 @@ namespace mt
 		Scene(int width, int height);
 		~Scene();
 		void LifeCycle();
-
+		void SceneFromFile(std::string name);
+		void Ellipsoid(Point center, double r);
 	private:
 		std::unique_ptr<Camera> m_camera;
 

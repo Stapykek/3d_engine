@@ -3,7 +3,7 @@
 
 namespace mt::math
 {
-		// MY_DEBUG определена
+		// MY_DEBUG пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		//#define MY_DEBUG 
 
 		template<typename T, int N, int M>
@@ -16,7 +16,7 @@ namespace mt::math
 		class Matrix
 		{
 		public:
-			// Конструктор
+			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 			Matrix()
 			{
 	#ifdef MY_DEBUG
@@ -29,7 +29,7 @@ namespace mt::math
 						m_mat[i][j] = 0;
 			}
 
-			// Конструктор
+			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 			Matrix(const T mas[N][M])
 			{
 	#ifdef MY_DEBUG
@@ -42,7 +42,7 @@ namespace mt::math
 						m_mat[i][j] = mas[i][j];
 			}
 
-			// Конструктор
+			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 			Matrix(const MasWrapper<T, N, M>& mas)
 			{
 	#ifdef MY_DEBUG
@@ -55,7 +55,7 @@ namespace mt::math
 						m_mat[i][j] = mas.mas[i][j];
 			}
 
-			// Конструктор копирования
+			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 			Matrix(const Matrix<T, N, M>& mat)
 			{
 	#ifdef MY_DEBUG
@@ -75,7 +75,7 @@ namespace mt::math
 			T get(int i, int j) const { return m_mat[i][j]; }
 			void set(int i, int j, T data) { m_mat[i][j] = data; }
 
-			// Присваивание
+			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 			//template<typename T, int N, int M>
 			Matrix<T, N, M>& operator=(const Matrix<T, N, M>& mat)
 			{
@@ -93,7 +93,7 @@ namespace mt::math
 				return *this;
 			}
 
-			// Оператор сложения
+			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 			//template<typename T, int N, int M>
 			Matrix<T, N, M> operator+(const Matrix<T, N, M>& mat)
 			{
@@ -107,7 +107,7 @@ namespace mt::math
 				return tmp;
 			}
 
-			// Оператор вычитания
+			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 			//template<typename T, int N, int M>
 			Matrix<T, N, M> operator-(const Matrix<T, N, M>& mat)
 			{
@@ -121,7 +121,7 @@ namespace mt::math
 				return tmp;
 			}
 
-			// Оператор умножения
+			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 			template<int U>
 			Matrix<T, N, U> operator*(const Matrix<T, N, U>& mat)
 			{
@@ -142,7 +142,7 @@ namespace mt::math
 				return tmp;
 			}
 
-			// Деструктор
+			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 			~Matrix()
 			{
 	#ifdef MY_DEBUG
@@ -162,7 +162,7 @@ namespace mt::math
 				return 1;
 			}
 
-			// friend - позволяет функции иметь доступ к private полям/методам класса
+			// friend - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ private пїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 			//template<typename T, int N, int M>
 			friend std::istream& operator>>(std::istream& os, Matrix<T, N, M>& mat);
 
@@ -174,7 +174,7 @@ namespace mt::math
 			T m_mat[N][M];
 		};
 
-		// Перегрузка оператора ввода
+		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 		template<typename T, int N, int M>
 		std::istream& operator>>(std::istream& in, Matrix<T, N, M>& mat)
 		{
@@ -184,23 +184,23 @@ namespace mt::math
 			return in;
 		}
 
-		// Перегрузка оператора вывода
+		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 		template<typename T, int N, int M>
 		std::ostream& operator<<(std::ostream& out, const Matrix<T, N, M>& mat)
 		{
-			out << "Matrix " << mat.m_n << "x" << mat.m_m << std::endl;
+			out << "Matrix " << mat.m_n << "x" << mat.m_m << std::endl; //Matrix n x m
 			for (int i = 0; i < mat.m_n; i++) {
 				for (int j = 0; j < mat.m_m; j++)
-					out << mat.m_mat[i][j] << " ";
+					out << mat.m_mat[i][j] << " "; //РІС‹РІРѕРґ РјР°С‚СЂРёС†С‹
 				out << std::endl;
 			}
 			return out;
 		}
 
-		using Vec2i = Matrix<int, 2, 1>;	// Сокращенное удобное название
-		using Vec2d = Matrix<double, 2, 1>;
-		using Mat22i = Matrix<int, 2, 2>;
-		using Mat22d = Matrix<double, 2, 2>;
+		using Vec2i = Matrix<int, 2, 1>;	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+		using Vec2d = Matrix<double, 2, 1>;	// С…РѕС‚РµР»РѕСЃСЊ Р±С‹ Р·РЅР°С‚СЊ, С‡С‚Рѕ РЅР°РїРёСЃР°РЅРѕ РІРѕ РІСЃРµС… СЌС‚РёС… РєРѕРјРјРµРЅС‚Р°СЂРёСЏС…, РЅРѕ РІРёРґРёРјРѕ РЅРµ СЃСѓРґСЊР±Р°
+		using Mat22i = Matrix<int, 2, 2>;   // РІС‹РґРµР»СЏРµРј С‚РёРїС‹ РјР°С‚СЂРёС†, РєРѕС‚РѕСЂС‹Рµ С‡Р°СЃС‚Рѕ Р±СѓРґРµРј РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ 
+		using Mat22d = Matrix<double, 2, 2>;// (Р° РёРјРµРЅРЅРѕ РґРІСѓРјРµСЂРЅС‹Рµ Рё С‚СЂС‘С…РјРµСЂРЅС‹Рµ РІРµРєС‚РѕСЂС‹, РјР°С‚СЂРёС†С‹ 2x2 Рё РјР°С‚СЂРёС†Р° 3x3)
 		using Mat33d = Matrix<double, 3, 3>;
 		using Vec3d = Matrix<double, 3, 1>;
 }

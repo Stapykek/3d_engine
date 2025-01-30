@@ -10,16 +10,25 @@ namespace mt
 
 	struct Angles
 	{
-		double roll, pitch, yaw;
-	};
-
+		double roll, pitch, yaw;  
+	}; /*крен, тангаж и рысканье соответственно. эти углы используются для анализа движения тела в пространстве.
+		если представить тело как самолёт, то у него есть следующие оси:
+		1. продольная ось, проводится от хвоста до носа самолёта, в направлении полёта. Вращение вокруг этой оси называется "крен" (roll).
+		A positive rolling motion lifts the left wing and lowers the right wing. 
+		Вращение в положительном направлении(против ч/с) оси поднимает левое крыло и опускает правое.
+		2. вертикальная ось -  ось, лежащая в плоскости симметрии самолёта и перпендикулярная его продольной оси. Вращение вокруг неё называется "рысканье"(yaw).
+		При этом самолёт поворачивает нос влево или вправо.
+		3. поперечная ось - это ось, перпендикулярная плоскости симметрии самолёта, направленная в сторону правой консоли крыла, 
+		дополняющая, таким образом, связанную систему координат до системы из трех векторов (они взаимно перпендикулярны и образуют ортогональный базис).
+		при вращении вокруг этой оси, самолёт поднимает и опускает нос. Вращение вокруг этой оси(и обр. с этой плоскостью угол) называется "тангаж"(pitch).
+		*/
 	struct Pixel
 	{
 		uint8_t r, g, b, a;
 	};
 
 	struct Intrinsic
-	{
+	{ //какие-то внутренние параметры камеры. похоже, что они используются для построения изображения(перспективная проекция)(проецируем 3д на 2д)
 		double fu, fv;
 		double du, dv;
 	};
@@ -30,22 +39,22 @@ namespace mt
 		Camera(int width, int height, Intrinsic intrinsic, Point position, Angles angles);
 		~Camera();
 
-		Pixel* Picture();
-		void Fill(Pixel pixel);
-		void Clear();
+		Pixel* Picture(); 
+		void Fill(Pixel pixel); //заполнить поле зрения камеры пикселями одного цвета
+		void Clear(); //очистить камеру
 		void ProjectPoint(Point p, Pixel c);
-		void dX(double d);
-		void dZ(double d);
-		void dRoll(double droll);
-		void dPitch(double dpitch);
+		void dX(double d); 			//совершить движение по x
+		void dZ(double d); 			//совершить движение по z
+		void dRoll(double droll);	//изменить угол крена  
+		void dPitch(double dpitch);	//изменить угол тангажа
 
 	private:
 		int m_width;
 		int m_height;
-		Pixel* m_picture;
+		Pixel* m_picture; //картинка есть массив пикселей
 		Intrinsic m_intrinsic;
 
-		Point m_position;
-		Angles m_angles;
+		Point m_position; //позиция камеры в пространстве
+		Angles m_angles; //те три угла связанной системы координат
 	};
 }
